@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mic, MessageCircle, Globe, Sparkles } from "lucide-react";
-import podcastStudio from "@/assets/podcast-studio.jpg";
+import podcastStudio from "@/assets/Damalis Dialogue.jpg";
 
 const About = () => {
   const features = [

@@ -26,13 +26,13 @@ const Hero = () => {
             className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-8"
           >
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-
             <span className="text-sm text-primary font-medium">Lifestyle </span>
-            <span className="text-sm text-primary font-medium">Culture </span>
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-sm text-primary font-medium">Culture</span>
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             <span className="text-sm text-primary font-medium">Entertainment</span>
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm text-primary font-medium">Personal Growth</span>
+            <span className="text-sm text-primary font-medium">Perspectives</span>
           </motion.div>
 
           <motion.h1

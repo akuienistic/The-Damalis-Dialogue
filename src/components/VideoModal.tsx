@@ -14,7 +14,7 @@ const VideoModal = ({ isOpen, onClose, videoId, title }: VideoModalProps) => {
       <DialogContent className="max-w-4xl w-[90vw] p-0 bg-card border-accent/20 overflow-hidden">
         <DialogTitle className="sr-only">{title}</DialogTitle>
         <DialogDescription className="sr-only">
-          Watch {title} video from The KDTV Podcast
+          Watch {title} video from The Damalis Dialogue
         </DialogDescription>
         <div className="relative">
           <button
