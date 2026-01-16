@@ -36,7 +36,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Image/Visual */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
@@ -57,7 +57,7 @@ const About = () => {
 
           {/* Right Side - Content */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
@@ -74,39 +74,58 @@ const About = () => {
               for meaningful conversations that inspire growth, spark curiosity, 
               and foster genuine connection.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-              We bring together thought leaders, everyday heroes, and inspiring 
-              individuals to share their journeys, insights, and wisdom. Each 
-              episode is crafted to leave you with actionable takeaways and 
+            <p className="text-muted-foreground text-lg leading-relaxed mb-16">
+              We bring together thought leaders, everyday heroes, and inspiring
+              individuals to share their journeys, insights, and wisdom. Each
+              episode is crafted to leave you with actionable takeaways and
               renewed perspective.
             </p>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex gap-4"
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">
-                      {feature.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         </div>
+
+        {/* Core Pillars Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <div className="text-center mb-12">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+              Our Core Pillars
+            </span>
+            <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
+              What Makes Us <span className="text-gradient">Different</span>
+            </h3>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              These four pillars form the foundation of every dialogue we create
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-card border border-accent/10 rounded-2xl p-6 text-center hover:border-primary/30 transition-all group"
+              >
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                  <feature.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h4 className="font-display font-bold text-foreground mb-3 text-lg">
+                  {feature.title}
+                </h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

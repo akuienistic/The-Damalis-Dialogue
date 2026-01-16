@@ -70,6 +70,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="bg-background border border-accent/20 rounded-2xl p-6"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>

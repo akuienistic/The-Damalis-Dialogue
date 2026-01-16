@@ -5,6 +5,7 @@ import FeaturedVideos from "@/components/FeaturedVideos";
 import Episodes from "@/components/Episodes";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <FeaturedVideos />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

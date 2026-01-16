@@ -39,9 +39,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
+            className="font-display text-6xl md:text-8xl font-bold text-foreground mb-6 leading-tight"
           >
-            Welcome to <span className="text-gradient">The Damalis Dialogue</span>
+            <span className="block">The</span>
+            <span className="text-gradient">Damalis Dialogue</span>
           </motion.h1>
 
           <motion.p

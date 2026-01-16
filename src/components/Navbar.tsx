@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Info, List, Play, Mail, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import damalisLogo from "@/assets/damalis-logo.jpg";
 
@@ -7,11 +7,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Episodes", href: "#episodes" },
-    { name: "Videos", href: "#videos" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", icon: Home },
+    { name: "About", href: "#about", icon: Info },
+    { name: "Episodes", href: "#episodes", icon: List },
+    { name: "Videos", href: "#videos", icon: Play },
+    { name: "Contact", href: "#contact", icon: Mail },
   ];
 
   return (
@@ -20,11 +20,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3">
-            <img 
-              src={damalisLogo} 
-              alt="The Damalis Dialogue" 
-              className="h-10 w-auto rounded-lg"
-            />
+            <img src={damalisLogo} alt="The Damalis Dialogue" className="h-10 w-auto rounded-lg" />
             <span className="font-display text-xl font-bold text-foreground hidden sm:block">
               The Damalis <span className="text-primary">Dialogue</span>
             </span>
@@ -42,19 +38,17 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#contact"
-              className="bg-gradient-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition-opacity"
+              href="https://www.youtube.com/@thedamalisdialogue"
+              target="_blank"
+              className="bg-gradient-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
             >
-              Tune In
+              <Youtube className="w-4 h-4" />
+              Subscribe on YT
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-foreground p-2"
-            aria-label="Toggle menu"
-          >
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground p-2" aria-label="Toggle menu">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -72,11 +66,7 @@ const Navbar = () => {
           >
             <div className="p-6">
               <div className="flex justify-end mb-8">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-foreground p-2"
-                  aria-label="Close menu"
-                >
+                <button onClick={() => setIsOpen(false)} className="text-foreground p-2" aria-label="Close menu">
                   <X className="w-6 h-6" />
                 </button>
               </div>
@@ -86,17 +76,20 @@ const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-foreground hover:text-primary transition-colors font-medium text-lg"
+                    className="text-foreground hover:text-primary transition-colors font-medium text-lg flex items-center gap-3"
                   >
+                    <link.icon className="w-5 h-5" />
                     {link.name}
                   </a>
                 ))}
                 <a
-                  href="#contact"
+                  href="https://www.youtube.com/@thedamalisdialogue"
+                  target="_blank"
                   onClick={() => setIsOpen(false)}
-                  className="bg-gradient-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-center hover:opacity-90 transition-opacity mt-4"
+                  className="bg-gradient-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-center hover:opacity-90 transition-opacity mt-4 flex items-center justify-center gap-2"
                 >
-                  Tune In
+                  <Youtube className="w-4 h-4" />
+                  Subscribe on YT
                 </a>
               </div>
             </div>

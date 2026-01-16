@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -84,7 +83,7 @@ All colors MUST be HSL.
     --border: 240 6% 18%;
     --input: 240 6% 18%;
     --ring: 348 70% 50%;
-    
+
     --sidebar-background: 240 8% 8%;
     --sidebar-foreground: 60 9% 94%;
     --sidebar-primary: 348 70% 50%;
@@ -124,8 +123,7 @@ All colors MUST be HSL.
   /* Hero section gradient */
   .bg-hero-gradient {
     background: radial-gradient(ellipse at 50% 0%, hsl(348 70% 50% / 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, hsl(40 80% 55% / 0.1) 0%, transparent 40%),
-                hsl(var(--background));
+      radial-gradient(ellipse at 80% 50%, hsl(40 80% 55% / 0.1) 0%, transparent 40%), hsl(var(--background));
   }
 
   /* Glow effect for buttons */
