@@ -110,6 +110,26 @@ const FeaturedVideos = () => {
           </div>
         </div>
       </div>
+
+      {selectedVideo && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-card rounded-2xl p-4 max-w-4xl w-full max-h-[90vh] relative">
+            <button
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-4 right-4 z-10 bg-primary text-primary-foreground rounded-full p-2 hover:bg-primary/90 transition-colors"
+            >
+              ✕
+            </button>
+            <iframe
+              src={`https://www.youtube.com/embed/${selectedVideo.videoId}?autoplay=1`}
+              title={selectedVideo.title}
+              className="w-full aspect-video rounded-xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

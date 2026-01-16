@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollToTop = () => {
@@ -36,7 +36,7 @@ const ScrollToTop = () => {
           className="fixed bottom-4 right-4 z-50 bg-primary text-primary-foreground p-3 rounded-full shadow-lg hover:bg-primary/90 transition-colors"
           aria-label="Scroll to top"
         >
-          <ChevronUp className="w-6 h-6" />
+          <ArrowUp className="w-6 h-6" />
         </motion.button>
       )}
     </AnimatePresence>
