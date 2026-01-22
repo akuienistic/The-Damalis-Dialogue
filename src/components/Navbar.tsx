@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Home, Info, List, Play, Mail, Youtube } from "lucide-react";
+import { Menu, X, Home, Info, List, Play, DollarSign, Mail, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import damalisLogo from "@/assets/damalis-logo.jpg";
 
@@ -11,6 +11,7 @@ const Navbar = () => {
     { name: "About", href: "#about", icon: Info },
     { name: "Episodes", href: "#episodes", icon: List },
     { name: "Videos", href: "#videos", icon: Play },
+    { name: "Pricing", href: "#pricing", icon: DollarSign },
     { name: "Contact", href: "#contact", icon: Mail },
   ];
 
