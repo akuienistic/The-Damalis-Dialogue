@@ -63,10 +63,16 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-screen w-1/2 bg-card border-l border-accent/10 md:hidden z-50"
+            className="fixed top-0 right-0 h-screen w-3/4 bg-card border-l border-accent/10 md:hidden z-50"
           >
             <div className="p-6">
-              <div className="flex justify-end mb-8">
+              <div className="flex justify-between items-center mb-8">
+                <a href="#home" className="flex items-center gap-3">
+                  <img src={damalisLogo} alt="The Damalis Dialogue" className="h-8 w-auto rounded-lg" />
+                  <span className="font-display text-lg font-bold text-foreground">
+                    The Damalis <span className="text-primary">Dialogue</span>
+                  </span>
+                </a>
                 <button onClick={() => setIsOpen(false)} className="text-foreground p-2" aria-label="Close menu">
                   <X className="w-6 h-6" />
                 </button>
@@ -87,7 +93,7 @@ const Navbar = () => {
                   href="https://www.youtube.com/@thedamalisdialogue"
                   target="_blank"
                   onClick={() => setIsOpen(false)}
-                  className="bg-gradient-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-center hover:opacity-90 transition-opacity mt-4 flex items-center justify-center gap-2"
+                  className="bg-gradient-primary text-primary-foreground px-4 py-2.5 rounded-full font-semibold text-center hover:opacity-90 transition-opacity mt-4 flex items-center justify-center gap-2"
                 >
                   <Youtube className="w-4 h-4" />
                   Subscribe on YT

@@ -125,7 +125,7 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               Designed & Built by{" "}
               <a
-                href="https://web.facebook.com/profile.php?id=61572703111798"
+                href="https://www.linkedin.com/in/simon-akuien-atem-710895290/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary font-semibold"
