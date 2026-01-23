@@ -1,5 +1,17 @@
 import { motion } from "framer-motion";
-import { Send, Facebook, Youtube, Instagram, VideoIcon, Podcast, Headphones, Star } from "lucide-react";
+import {
+  Send,
+  Facebook,
+  Youtube,
+  Instagram,
+  VideoIcon,
+  Podcast,
+  Headphones,
+  Star,
+  User,
+  Mail,
+  MessageSquare,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -77,43 +89,52 @@ const Contact = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Your Name
                 </label>
-                <Input
-                  id="name"
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="John Doe"
-                  required
-                  className="bg-background border-accent/20 focus:border-primary"
-                />
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <Input
+                    id="name"
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="John Doe"
+                    required
+                    className="bg-background border-accent/20 focus:border-primary pl-10"
+                  />
+                </div>
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                   Your Email
                 </label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="hello@example.com"
-                  required
-                  className="bg-background border-accent/20 focus:border-primary"
-                />
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="hello@example.com"
+                    required
+                    className="bg-background border-accent/20 focus:border-primary pl-10"
+                  />
+                </div>
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                   Your Message
                 </label>
-                <Textarea
-                  id="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Tell us what's on your mind..."
-                  required
-                  rows={5}
-                  className="bg-background border-accent/20 focus:border-primary resize-none"
-                />
+                <div className="relative">
+                  <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
+                  <Textarea
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tell us what's on your mind..."
+                    required
+                    rows={5}
+                    className="bg-background border-accent/20 focus:border-primary resize-none pl-10 pt-2"
+                  />
+                </div>
               </div>
               <Button
                 type="submit"
@@ -194,16 +215,60 @@ const Contact = () => {
             </div>
 
             {/* Rate & Review */}
-            <div className="bg-gradient-primary rounded-2xl p-6 text-center">
-              <div className="flex justify-center mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-primary-foreground fill-current" />
-                ))}
+            <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/80 rounded-2xl p-6 text-center relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 left-4 w-16 h-16 border border-primary-foreground/20 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-12 h-12 border border-primary-foreground/20 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-primary-foreground/20 rounded-full"></div>
               </div>
-              <h3 className="font-display text-xl font-bold text-primary-foreground mb-2">Love The Show?</h3>
-              <p className="text-primary-foreground/80 mb-4">
-                Leave us a review and help others discover meaningful dialogues
-              </p>
+
+              <div className="relative z-10">
+                <div className="flex justify-center mb-4">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-300 fill-current animate-pulse"
+                        style={{ animationDelay: `${i * 0.1}s` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <h3 className="font-display text-xl font-bold text-primary-foreground mb-3">Your Review Matters!</h3>
+
+                <p className="text-primary-foreground/90 text-sm mb-6 leading-relaxed">
+                  Help us grow our community by sharing your thoughts. Every review inspires more meaningful
+                  conversations.
+                </p>
+
+                <div className="flex flex-col gap-3">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border-primary-foreground/20"
+                    onClick={() => window.open("https://www.youtube.com/@thedamalisdialogue", "_blank")}
+                  >
+                    <Star className="w-4 h-4 mr-2" />
+                    Rate on YouTube
+                  </Button>
+
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border-primary-foreground/20"
+                    onClick={() => window.open("https://podcasts.apple.com", "_blank")}
+                  >
+                    <Podcast className="w-4 h-4 mr-2" />
+                    Review on Apple Podcasts
+                  </Button>
+                </div>
+
+                <div className="mt-4 text-xs text-primary-foreground/70">
+                  ⭐ Average rating: 4.9/5 from 200+ reviews
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
