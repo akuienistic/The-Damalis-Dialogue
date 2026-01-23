@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Menu, X, Home, Info, List, Play, DollarSign, Mail, Youtube } from "lucide-react";
+import { Menu, X, Home, Info, List, Play, DollarSign, Mail, Youtube, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 import damalisLogo from "@/assets/damalis-logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const navLinks = [
     { name: "Home", href: "#home", icon: Home },
@@ -27,17 +29,32 @@ const Navbar = () => {
             </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
+            <div className="flex items-center gap-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Right Side - Dark Mode + Subscribe */}
+          <div className="hidden lg:flex items-center gap-4">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="relative p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+              aria-label="Toggle theme"
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute inset-0 h-5 w-5 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100 m-auto" />
+              <span className="sr-only">Toggle theme</span>
+            </button>
             <a
               href="https://www.youtube.com/@thedamalisdialogue"
               target="_blank"
@@ -48,10 +65,25 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground p-2" aria-label="Toggle menu">
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Right Side - Dark Mode + Menu Button */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="relative p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors lg:hidden"
+              aria-label="Toggle theme"
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute inset-0 h-5 w-5 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100 m-auto" />
+              <span className="sr-only">Toggle theme</span>
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-foreground p-2"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -89,6 +121,21 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
+
+                {/* Mobile Dark Mode Toggle */}
+                <div className="flex items-center justify-between py-2">
+                  <span className="text-foreground font-medium">Theme</span>
+                  <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="relative p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+                    aria-label="Toggle theme"
+                  >
+                    <Sun className="h-5 w-5 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0" />
+                    <Moon className="absolute inset-0 h-5 w-5 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100 m-auto" />
+                    <span className="sr-only">Toggle theme</span>
+                  </button>
+                </div>
+
                 <a
                   href="https://www.youtube.com/@thedamalisdialogue"
                   target="_blank"
